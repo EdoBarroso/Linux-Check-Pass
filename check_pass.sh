@@ -7,6 +7,7 @@ set timeout 60
 log_file results.log ;#
 
 foreach line [split $ipaddrs \n] {
+    send_user "===== $line ===== \n\n"
     spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no root@$line
     expect {
     	"denied" {
